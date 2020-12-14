@@ -3,7 +3,7 @@ export default {
   title2: "EU POSSO TER HORAS??",
   english: "Inglês",
   portuguese: "Português",
-  messageParty: "Let's party!",
+  messageParty: "Vamos Festejar!",
   messageWakeUp: "Acorde!",
   messageLunch: "Vamos almoçar!",
   messageSleep: "Durma bem!",

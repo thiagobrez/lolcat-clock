@@ -3,7 +3,7 @@ export default {
   title2: "I CAN HAZ TIME??",
   english: "English",
   portuguese: "Portuguese",
-  messageParty: "Vamos Festejar!",
+  messageParty: "Let's party!",
   messageWakeUp: "Wake up!",
   messageLunch: "Let's have some lunch!",
   messageSleep: "Sleep tight!",
