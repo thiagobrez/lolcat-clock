@@ -7,11 +7,14 @@ var lunchtime = 12;
 var naptime = lunchtime + 2;
 var partytime;
 var evening = 18;
+var clockInterval;
+var oneSecond = 1000;
 
 // Getting it to show the current time on the page
 var showCurrentTime = function () {
   // display the string on the webpage
   var clock = document.getElementById("clock");
+
 
   var currentTime = new Date();
 
@@ -42,21 +45,23 @@ var showCurrentTime = function () {
   // put together the string that displays the time
   var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + "!";
 
+  console.log('clocktime', clockTime)
+
   clock.innerText = clockTime;
 };
 
 // Getting the clock to increment on its own and change out messages and pictures
-var updateClock = function () {
+var updateClock = function (t) {
   var time = new Date().getHours();
   var messageText;
 
-  var messageParty = "Let's party!";
-  var messageWakeUp = "Wake up!";
-  var messageLunch = "Let's have some lunch!";
-  var messageSleep = "Sleep tight!";
-  var messageStdMorning = "Good morning!";
-  var messageStdEvening = "Good evening!";
-  var messageStdAfternoon = "Good afternoon!";
+  var messageParty = t('messageParty');
+  var messageWakeUp = t('messageWakeUp');
+  var messageLunch = t('messageLunch');
+  var messageSleep = t('messageSleep');
+  var messageStdMorning = t('messageStdMorning');
+  var messageStdEvening = t('messageStdEvening');
+  var messageStdAfternoon = t('messageStdAfternoon');
 
   var image =
     "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg";
@@ -93,17 +98,11 @@ var updateClock = function () {
     messageText = messageStdAfternoon;
   }
 
-  console.log(messageText);
   timeEventJS.innerText = messageText;
   lolcatImage.src = image;
 
   showCurrentTime();
 };
-updateClock();
-
-// Getting the clock to increment once a second
-var oneSecond = 1000;
-setInterval(updateClock, oneSecond);
 
 // Getting the Party Time Button To Work
 var partyButton = document.getElementById("partyTimeButton");
@@ -153,6 +152,11 @@ napTimeSelector.addEventListener("change", napEvent);
 var changeLanguage = function (language) {
   i18next.changeLanguage(language, function (err, t) {
     updateTexts(t);
+
+    clearInterval(clockInterval);
+    clockInterval = setInterval(function () {
+      updateClock(t);
+    }, oneSecond);
   });
 };
 
@@ -171,18 +175,10 @@ function updateTexts(t) {
   document.getElementById("title2").innerText = t("title2");
   enButton.innerText = t("english");
   ptBRButton.innerText = t("portuguese");
-  messageParty = t("messageParty");
-  messageWakeUp = t("messageWakeUp");
-  messageLunch = t("messageLunch");
-  messageSleep = t("messageSleep");
-  messageStdMorning = t("messageStdMorning");
-  messageStdEvening = t("messageStdEvening");
-  messageStdAfternoon = t("messageStdAfternoon");
   document.getElementById("wakeUpTimeText").innerText = t("wakeUpTimeMessage");
   document.getElementById("lunchTimeText").innerText = t("lunchTimeMessage");
   document.getElementById("napTimeText").innerText = t("napTimeMessage");
   document.getElementById("partyTimeButton").innerText = t("partyButtonText");
-  updateClock();
 }
 
 i18next.init(
@@ -199,6 +195,10 @@ i18next.init(
     },
   },
   function (err, t) {
+    clockInterval = setInterval(function () {
+      updateClock(t);
+    }, oneSecond);
+
     updateTexts(t);
   }
 );
