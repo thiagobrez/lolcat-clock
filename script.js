@@ -187,7 +187,7 @@ function updateTexts(t) {
 
 i18next.init(
   {
-    lng = t(""),
+    lng: "ptBR",
     debug: true,
     resources: {
       en: {
