@@ -49,6 +49,15 @@ var showCurrentTime = function () {
 var updateClock = function () {
   var time = new Date().getHours();
   var messageText;
+
+  var messageParty = "Let's party!";
+  var messageWakeUp = "Wake up!";
+  var messageLunch = "Let's have some lunch!";
+  var messageSleep = "Sleep tight!";
+  var messageStdMorning = "Good morning!";
+  var messageStdEvening = "Good evening!";
+  var messageStdAfternoon = "Good afternoon!";
+
   var image =
     "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg";
 
@@ -58,30 +67,30 @@ var updateClock = function () {
   if (time == partytime) {
     image =
       "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/partyTime.jpg";
-    messageText = "Let's party!";
+    messageText = messageParty;
   } else if (time == wakeuptime) {
     image =
       "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg";
-    messageText = "Wake up!";
+    messageText = messageWakeUp;
   } else if (time == lunchtime) {
     image =
       "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat2.jpg";
-    messageText = "Let's have some lunch!";
+    messageText = messageLunch;
   } else if (time == naptime) {
     image =
       "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat3.jpg";
-    messageText = "Sleep tight!";
+    messageText = messageSleep;
   } else if (time < noon) {
     image =
       "https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg";
-    messageText = "Good morning!";
+    messageText = messageStdMorning;
   } else if (time >= evening) {
     image = "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cat_sleep.jpg";
-    messageText = "Good evening!";
+    messageText = messageStdEvening;
   } else {
     image =
       "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg";
-    messageText = "Good afternoon!";
+    messageText = messageStdAfternoon;
   }
 
   console.log(messageText);
@@ -158,13 +167,27 @@ ptBRButton.addEventListener("click", function () {
 });
 
 function updateTexts(t) {
+  document.getElementById("title").innerText = t("title");
+  document.getElementById("title2").innerText = t("title2");
   enButton.innerText = t("english");
   ptBRButton.innerText = t("portuguese");
+  messageParty = t("messageParty");
+  messageWakeUp = t("messageWakeUp");
+  messageLunch = t("messageLunch");
+  messageSleep = t("messageSleep");
+  messageStdMorning = t("messageStdMorning");
+  messageStdEvening = t("messageStdEvening");
+  messageStdAfternoon = t("messageStdAfternoon");
+  document.getElementById("wakeUpTimeText").innerText = t("wakeUpTimeMessage");
+  document.getElementById("lunchTimeText").innerText = t("lunchTimeMessage");
+  document.getElementById("napTimeText").innerText = t("napTimeMessage");
+  document.getElementById("partyTimeButton").innerText = t("partyButtonText");
+  updateClock();
 }
 
 i18next.init(
   {
-    lng: "ptBR",
+    lng = t(""),
     debug: true,
     resources: {
       en: {
