@@ -9,6 +9,7 @@ var partytime;
 var evening = 18;
 var clockInterval;
 var oneSecond = 1000;
+var translate;
 
 // Getting it to show the current time on the page
 var showCurrentTime = function () {
@@ -110,17 +111,17 @@ var partyButton = document.getElementById("partyTimeButton");
 var partyEvent = function () {
   if (partytime < 0) {
     partytime = new Date().getHours();
-    partyTimeButton.innerText = "Party Over!";
+    partyTimeButton.innerText = translate('partyOver')
     partyTimeButton.style.backgroundColor = "#0A8DAB";
   } else {
     partytime = -1;
-    partyTimeButton.innerText = "Party Time!";
+    partyTimeButton.innerText = translate('partyButtonText');
     partyTimeButton.style.backgroundColor = "#222";
   }
 };
 
 partyButton.addEventListener("click", partyEvent);
-partyEvent();
+// partyEvent();
 
 // Activates Wake-Up selector
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
@@ -151,12 +152,16 @@ napTimeSelector.addEventListener("change", napEvent);
 
 var changeLanguage = function (language) {
   i18next.changeLanguage(language, function (err, t) {
+    translate = t;
+
     updateTexts(t);
 
     clearInterval(clockInterval);
     clockInterval = setInterval(function () {
       updateClock(t);
     }, oneSecond);
+
+    partyEvent();
   });
 };
 
@@ -193,10 +198,14 @@ i18next.init(
     },
   },
   function (err, t) {
+    translate = t;
+
+    updateTexts(t);
+
     clockInterval = setInterval(function () {
       updateClock(t);
     }, oneSecond);
 
-    updateTexts(t);
+    partyEvent();
   }
 );

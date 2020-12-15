@@ -11,6 +11,7 @@ export default {
   messageStdEvening: "Boa Noite!",
   messageStdAfternoon: "Boa Tarde!",
   partyButtonText: "HORA DA FESTA!",
+  partyOver: "A FESTA ACABOU!",
   wakeUpTimeMessage: "Insira hora de acordar",
   lunchTimeMessage: "Insira hora de almoçar",
   napTimeMessage: "Insira hora de cochilar",  

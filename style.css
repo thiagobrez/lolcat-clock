@@ -90,3 +90,12 @@ footer p {
   align-items: center;
   justify-content: center;
 }
+
+.flagIconWrapper {
+  margin: 5px;
+}
+
+.flagIcon {
+  width: 32px;
+  height: 28px;
+}

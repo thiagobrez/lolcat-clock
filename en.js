@@ -11,6 +11,7 @@ export default {
   messageStdEvening: "Good evening!",
   messageStdAfternoon: "Good afternoon!",
   partyButtonText: "PARTY TIME!",
+  partyOver: "PARTY OVER!",
   wakeUpTimeMessage: "set Wake Up time",
   lunchTimeMessage: "set Lunch time",
   napTimeMessage: "set Nap time", 
