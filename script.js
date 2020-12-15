@@ -173,8 +173,6 @@ ptBRButton.addEventListener("click", function () {
 function updateTexts(t) {
   document.getElementById("title").innerText = t("title");
   document.getElementById("title2").innerText = t("title2");
-  enButton.innerText = t("english");
-  ptBRButton.innerText = t("portuguese");
   document.getElementById("wakeUpTimeText").innerText = t("wakeUpTimeMessage");
   document.getElementById("lunchTimeText").innerText = t("lunchTimeMessage");
   document.getElementById("napTimeText").innerText = t("napTimeMessage");

@@ -83,3 +83,10 @@ footer p {
   text-transform: uppercase;
   font-size: 12px;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,44 +1,44 @@
 <html>
-  <head>
+<head>
     <title>LOLCAT CLOCK</title>
 
     <link
-      href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace"
+            rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:800"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:800"
+            rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script
-      type="text/javascript"
-      src="https://unpkg.com/i18next/dist/umd/i18next.min.js"
+            type="text/javascript"
+            src="https://unpkg.com/i18next/dist/umd/i18next.min.js"
     ></script>
-  </head>
-  <body>
-    <div class="page">
-      <header>
+</head>
+<body>
+<div class="page">
+    <header>
         <h1 id="title">LOLCAT CLOCK</h1>
-      </header>
+    </header>
 
-      <h4 id="title2">
-        I CAN HAZ TIME?? <br />
-      </h4>
-      <h1 id="clock" class="clock">Clock goes here</h1>
+    <h4 id="title2">
+        I CAN HAZ TIME?? <br/>
+    </h4>
+    <h1 id="clock" class="clock">Clock goes here</h1>
 
-      <img
-        id="lolcatImage"
-        src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg"
-        alt="lolcat"
-      />
+    <img
+            id="lolcatImage"
+            src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg"
+            alt="lolcat"
+    />
 
-      <blockquote id="timeEvent">
+    <blockquote id="timeEvent">
         This is where time events are reported
-      </blockquote>
+    </blockquote>
 
-      <p id="wakeUpTimeText">set Wake Up Time</p>
-      <select id="wakeUpTimeSelector">
+    <p id="wakeUpTimeText">set Wake Up Time</p>
+    <select id="wakeUpTimeSelector">
         <option value="1">1 AM - 2AM</option>
         <option value="2">2 AM - 3AM</option>
         <option value="3">3 AM - 4AM</option>
@@ -63,10 +63,10 @@
         <option value="22">10 PM - 11PM</option>
         <option value="23">11 PM - 12AM</option>
         <option value="24">12 AM - 1AM</option>
-      </select>
-      <br />
-      <p id="lunchTimeText">set Lunch Time</p>
-      <select id="lunchTimeSelector">
+    </select>
+    <br/>
+    <p id="lunchTimeText">set Lunch Time</p>
+    <select id="lunchTimeSelector">
         <option value="1">1 AM - 2AM</option>
         <option value="2">2 AM - 3AM</option>
         <option value="3">3 AM - 4AM</option>
@@ -91,10 +91,10 @@
         <option value="22">10 PM - 11PM</option>
         <option value="23">11 PM - 12AM</option>
         <option value="24">12 AM - 1AM</option>
-      </select>
-      <br />
-      <p id="napTimeText">set Nap Time</p>
-      <select id="napTimeSelector">
+    </select>
+    <br/>
+    <p id="napTimeText">set Nap Time</p>
+    <select id="napTimeSelector">
         <option value="1">1 AM - 2AM</option>
         <option value="2">2 AM - 3AM</option>
         <option value="3">3 AM - 4AM</option>
@@ -119,18 +119,27 @@
         <option value="22">10 PM - 11PM</option>
         <option value="23">11 PM - 12AM</option>
         <option value="24">12 AM - 1AM</option>
-      </select>
-      <br />
-      <button id="partyTimeButton">Party!</button>
+    </select>
+    <br/>
+    <button id="partyTimeButton">Party!</button>
 
-      <footer>
+    <footer>
         <p>&copy; Skillcrush 2016</p>
 
-        <button id="en">English</button>
-        <button id="ptBR">Portuguese</button>
-      </footer>
-    </div>
+        <div class="row">
+            <div id="en">
+                <img src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg"
+                     style="width: 25px; height: 25px;"/>
+            </div>
 
-    <script type="module" src="script.js"></script>
-  </body>
+            <div id="ptBR">
+                <img src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg"
+                     style="width: 25px; height: 25px;"/>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
 </html>
