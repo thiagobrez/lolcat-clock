@@ -120,7 +120,6 @@ var partyEvent = function () {
 };
 
 partyButton.addEventListener("click", partyEvent);
-// partyEvent();
 
 // Activates Wake-Up selector
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
@@ -158,9 +157,7 @@ var changeLanguage = function (language) {
         partyEvent();
 
         clearInterval(clockInterval);
-        clockInterval = setInterval(function () {
-            updateClock();
-        }, oneSecond);
+        clockInterval = setInterval(updateClock, oneSecond);
     });
 };
 
@@ -217,8 +214,6 @@ i18next.init(
         updateDate(defaultLanguage);
         partyEvent();
 
-        clockInterval = setInterval(function () {
-            updateClock();
-        }, oneSecond);
+        clockInterval = setInterval(updateClock, oneSecond);
     }
 );
